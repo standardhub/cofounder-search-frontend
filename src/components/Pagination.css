@@ -1,0 +1,231 @@
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  padding: 12px;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.pagination-info {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.page-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--primary-color);
+}
+
+.page-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--bg-tertiary);
+}
+
+.prev-btn,
+.next-btn {
+  padding: 8px 16px;
+  font-weight: 500;
+}
+
+.page-dots {
+  padding: 8px 4px;
+  color: var(--text-muted);
+  font-weight: bold;
+}
+
+/* Go to Page Styles */
+.go-to-page {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.go-to-page label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.page-input {
+  width: 60px;
+  padding: 6px 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.page-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.go-btn {
+  padding: 6px 12px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.go-btn:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.go-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--text-muted);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .pagination-controls {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .page-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    min-width: 35px;
+  }
+  
+  .prev-btn,
+  .next-btn {
+    padding: 6px 12px;
+  }
+  
+  .go-to-page {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-container {
+    padding: 10px;
+  }
+  
+  .pagination-info {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .pagination-controls {
+    gap: 12px;
+  }
+  
+  .pagination {
+    gap: 4px;
+  }
+  
+  .page-btn {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    min-width: 32px;
+  }
+  
+  .prev-btn,
+  .next-btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .go-to-page {
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .go-to-page label {
+    font-size: 0.8rem;
+  }
+  
+  .page-input {
+    width: 50px;
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .go-btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  
+  /* Hide some page numbers on very small screens */
+  .pagination .page-btn:not(.active):not(.prev-btn):not(.next-btn) {
+    display: none;
+  }
+  
+  .pagination .page-btn.active,
+  .pagination .prev-btn,
+  .pagination .next-btn {
+    display: flex;
+  }
+  
+  /* Show first, last, and current page */
+  .pagination .page-btn:first-of-type,
+  .pagination .page-btn:last-of-type {
+    display: flex;
+  }
+}

@@ -1,0 +1,312 @@
+.candidate-table-container {
+  background: var(--bg-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+.candidate-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.candidate-table thead {
+  background: var(--bg-tertiary);
+}
+
+.candidate-table th {
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.candidate-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.candidate-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.candidate-row:hover {
+  background: var(--bg-secondary);
+}
+
+.candidate-row:last-child td {
+  border-bottom: none;
+}
+
+/* Avatar Cell */
+.avatar-cell {
+  width: 60px;
+}
+
+.candidate-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.candidate-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Name Cell */
+.name-cell {
+  min-width: 120px;
+}
+
+.candidate-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.gender-cell {
+  text-align: center;
+}
+.gender-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.gender-badge.woman {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.gender-badge.man {
+  background: #d4edda;
+  color: #155724;
+}
+
+.dark .gender-badge.woman {
+  background: #4a1a1a;
+  color: #ff6b6b;
+}
+
+.dark .gender-badge.man {
+  background: #1a4a1a;
+  color: #6bcf7f;
+}
+
+/* Age Cell */
+.age-cell {
+  width: 80px;
+  color: var(--text-secondary);
+}
+
+/* Technical Cell */
+.technical-cell {
+  width: 100px;
+}
+
+.technical-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  min-width: 60px;
+}
+
+.technical-badge.technical {
+  background: #d4edda;
+  color: #155724;
+}
+
+.technical-badge.non-technical {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.dark .technical-badge.technical {
+  background: #1a4a1a;
+  color: #6bcf7f;
+}
+
+.dark .technical-badge.non-technical {
+  background: #4a4a1a;
+  color: #ffd93d;
+}
+
+/* Location Cell */
+.location-cell {
+  min-width: 150px;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.location {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.country {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Last Seen Cell */
+.last-seen-cell {
+  width: 120px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Action Buttons */
+.linkedin-cell,
+.profile-cell {
+  width: 120px;
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+}
+
+.linkedin-btn {
+  background: #0077b5;
+  color: white;
+}
+
+.linkedin-btn:hover:not(.disabled) {
+  background: #005885;
+}
+
+.linkedin-btn.disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.profile-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.profile-btn:hover {
+  background: var(--primary-hover);
+}
+
+/* No Candidates */
+.no-candidates {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .candidate-table {
+    font-size: 0.85rem;
+  }
+  
+  .candidate-table th,
+  .candidate-table td {
+    padding: 8px 6px;
+  }
+  
+  .candidate-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .action-btn {
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  .candidate-table-container {
+    overflow-x: auto;
+  }
+  
+  .candidate-table {
+    min-width: 800px;
+  }
+  
+  .candidate-table th,
+  .candidate-table td {
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .candidate-table {
+    min-width: 700px;
+    font-size: 0.8rem;
+  }
+  
+  .candidate-avatar {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .avatar-placeholder {
+    font-size: 1rem;
+  }
+  
+  .action-btn {
+    padding: 4px 6px;
+    font-size: 0.7rem;
+    min-width: 60px;
+  }
+}
