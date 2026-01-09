@@ -1,16 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import CandidateSearch from './components/CandidateSearch';
 import ThemeToggle from './components/ThemeToggle';
 import './App.css';
 
+// Debug: Check if environment variable is loaded
+console.log('GraphQL URI:', process.env.REACT_APP_GRAPHQL_URI);
+
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql',
+  uri: process.env.REACT_APP_GRAPHQL_URI || 'http://localhost:4000/graphql',
+});
+
+// Add auth context if needed (for future authentication)
+const authLink = setContext((_, { headers }) => {
+  return {
+    headers: {
+      ...headers,
+      // Add any auth headers here if needed
+      // authorization: token ? `Bearer ${token}` : "",
+    }
+  }
 });
 
 const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache()
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      errorPolicy: 'all'
+    },
+    query: {
+      errorPolicy: 'all'
+    }
+  }
 });
 
 function App() {
